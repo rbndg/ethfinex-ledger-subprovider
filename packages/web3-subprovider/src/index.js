@@ -1,5 +1,5 @@
 //@flow
-import AppEth from "@ledgerhq/hw-app-eth";
+import AppEth from "../../hw-app-eth/";
 import type Transport from "@ledgerhq/hw-transport";
 import HookedWalletSubprovider from "web3-provider-engine/dist/es5/subproviders/hooked-wallet";
 import stripHexPrefix from "strip-hex-prefix";
