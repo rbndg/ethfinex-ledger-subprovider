@@ -12,7 +12,6 @@ describe('Ethfinex Ledger Web3', () => {
     })
   })
   it('Connects to RPC server', async () => {
-    console.log("@1");
     let height = await web3.eth.getBlockNumber()
     assert.ok(height > 1000)
   })

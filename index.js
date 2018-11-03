@@ -1,7 +1,7 @@
 const ProviderEngine = require('web3-provider-engine')
 const FetchSubprovider = require('web3-provider-engine/subproviders/fetch')
 const TransportNodeHid = require('@ledgerhq/hw-transport-node-hid').default
-const createLedgerSubprovider = require('./packages/web3-subprovider/').default
+const createLedgerSubprovider = require('./packages/web3-subprovider').default
 
 module.exports = async (Web3, {networkId, rpcUrl}) => {
   const engine = new ProviderEngine()
