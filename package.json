@@ -2,6 +2,9 @@
   "private": true,
   "name": "ethfinex-ledger-subprovider",
   "version": "0.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "test": "npm run build && lerna run testmocha",
     "test-node": "cd packages/test && npm run test-node",
