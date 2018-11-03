@@ -18,8 +18,7 @@
     "build": "BABEL_ENV=production && npm run documentation && lerna run build",
     "watch": "lerna run --parallel watch",
     "clean": "rm -rf node_modules packages/*/node_modules/ packages/*/flow-typed/ packages/*/lib flow-typed",
-    "rebuild": "lerna run clean && lerna run build",
-    "publish": "npm && lerna run clean && lerna run build && lerna publish --registry=https://registry.npmjs.org/"
+    "rebuild": "lerna run clean && lerna run build"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
