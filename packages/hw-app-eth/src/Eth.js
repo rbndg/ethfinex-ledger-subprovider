@@ -39,7 +39,8 @@ export default class Eth {
         "signTransaction",
         "signPersonalMessage",
         "getAppConfiguration",
-        "willShowConfirmation"
+        "willShowConfirmation",
+        "setRequestConfirmation"
       ],
       scrambleKey
     );
@@ -53,7 +54,7 @@ export default class Eth {
     }
     this._requestCountInterval = setInterval(()=>{
       this.resetRequestCount();
-    },10000);
+    },60000);
   }
 
   /**
@@ -67,6 +68,20 @@ export default class Eth {
     return this.transport.send(0xe0,0xa1, 0x00, 0x00).then(response => {
       let result = {};
       result.willShowConfirmation = response[0] ? true : false;
+      return result;
+    });
+  }
+
+  /**
+   * check ledger if a confirmation will be required.
+   * @example
+   * eth.willShowConfirmation().then(o => o.willShowConfirmation)
+   */
+  setRequestConfirmation( count:number ): Promise<> {
+    const buff = Buffer.allocUnsafe(count);
+    return this.transport.send(0xe0,0xa3, 0x00, 0x00,buff).then(response => {
+      let result = {};
+      result.success = response[0] ? true : false;
       return result;
     });
   }
